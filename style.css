@@ -1,14 +1,18 @@
 *, *::after, *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   --logo-padding: 12vw;
+  --line-height: 1.5;
   font-size: calc(12px + 1vw);
   color: rgba(0, 0, 0, 0.87);
   font-family: montserrat, sans-serif;
   height: 100%;
   font-weight: 500;
+  line-height: var(--line-height);
 }
 
 .logo {
@@ -19,7 +23,7 @@ html {
 }
 .logo img {
   vertical-align: bottom;
-  transform: translateY(-0.24em);
+  transform: translateY(-0.38em);
   height: 1.64em;
   width: auto;
   margin-left: -1em;
@@ -28,6 +32,12 @@ html {
 h1 {
   font-size: 3rem;
   font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 0.6em;
+}
+
+p {
+  margin-top: calc(var(--line-height) * 1em);
 }
 
 body {
