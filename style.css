@@ -5,7 +5,7 @@
 }
 
 html {
-  --logo-padding: 12vw;
+  --padding: 12vw;
   --line-height: 1.5;
   font-size: calc(12px + 1vw);
   color: white;
@@ -19,7 +19,7 @@ html {
   --relative-font-size: 1.4;
   font-size: calc(var(--relative-font-size) * 1rem);
   font-weight: 100;
-  margin-bottom: var(--logo-padding);
+  margin-bottom: var(--padding);
   padding-left: 0.1em
 }
 .logo img {
@@ -53,7 +53,7 @@ body {
 }
 
 .content {
-  padding: var(--logo-padding);
+  padding: var(--padding);
 }
 
 .background,
@@ -91,7 +91,7 @@ ABQALAAAAAAFAAQAAAURIBAIA1EYB5IoC9M4DxRJUwgAOw==);
 .background-gradient {}
 
 .signup {
-  --signup-width: 20em;
+  --signup-width: calc(300px + 20vw);
   --signup-height: 3em;
   --signup-transition: 0.2s cubic-bezier(0, 0.3, 0, 1);
   --submit-width: 8em;
@@ -105,6 +105,11 @@ ABQALAAAAAAFAAQAAAURIBAIA1EYB5IoC9M4DxRJUwgAOw==);
 }
 .signup:hover {
   transform: scale(1.1);
+}
+@media (max-width: 535.7px) {
+  .signup {
+    --signup-width: calc(100vw - 2 * var(--padding));
+  }
 }
 
 .signup-slider {
@@ -142,6 +147,7 @@ ABQALAAAAAAFAAQAAAURIBAIA1EYB5IoC9M4DxRJUwgAOw==);
   padding: 0.5em;
   transition: width var(--signup-transition);
   background: white;
+  border-radius: 0;
 }
 .signup-slider--submit .signup-input {
   width: calc(var(--signup-width) - var(--submit-width));
@@ -158,6 +164,7 @@ ABQALAAAAAAFAAQAAAURIBAIA1EYB5IoC9M4DxRJUwgAOw==);
   padding: 0.5em;
   color: white;
   cursor: pointer;
+  border-radius: 0;
 }
 .signup-submit:hover,
 .signup-submit:focus {
