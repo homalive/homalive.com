@@ -8,7 +8,7 @@ html {
   --logo-padding: 12vw;
   --line-height: 1.5;
   font-size: calc(12px + 1vw);
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
   font-family: montserrat, sans-serif;
   height: 100%;
   font-weight: 500;
@@ -50,7 +50,9 @@ body {
   padding: var(--logo-padding);
 }
 
-.background, .background-overlay {
+.background,
+.background-overlay,
+.background-gradient {
   position: absolute;
   top: 0;
   right: 0;
@@ -65,5 +67,12 @@ body {
   background-repeat: no-repeat;
 }
 .background-overlay {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.6);
+}
+.background-gradient {
+  background: linear-gradient(
+    to top right,
+    rgba(0, 255, 245, 0.4),
+    rgba(252, 255, 0, 0.8)
+  )
 }
