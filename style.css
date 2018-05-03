@@ -88,10 +88,83 @@ ABQALAAAAAAFAAQAAAURIBAIA1EYB5IoC9M4DxRJUwgAOw==);
 .background-overlay {
   background: rgba(0, 0, 0, 0.6);
 }
-.background-gradient {
-  background: linear-gradient(
-    to top right,
-    hsla(175, 100%, 50%, 0.4),
-    hsla(61, 100%, 50%, 0.8)
-  )
+.background-gradient {}
+
+.signup {
+  --signup-width: 20em;
+  --signup-height: 3em;
+  --signup-transition: 0.2s cubic-bezier(0, 0.3, 0, 1);
+  --submit-width: 8em;
+  height: var(--signup-height);
+  width: var(--signup-width);
+  overflow: hidden;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.5) -20px 30px 100px;
+  color: rgba(0, 0, 0, 0.87);
+  transition: transform var(--signup-transition);
+}
+.signup:hover {
+  transform: scale(1.1);
+}
+
+.signup-slider {
+  height: var(--signup-height);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  transition: margin-left var(--signup-transition);
+}
+.signup-slider--shown {
+  margin-left: calc(-1 * var(--signup-width));
+}
+
+.signup-element {
+  height: 100%;
+  width: var(--signup-width);
+  flex-shrink: 0;
+}
+
+.signup-button {
+  background: white;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  text-align: center;
+  font: inherit;
+  line-height: var(--signup-height);
+  background: white;
+}
+
+.signup-input {
+  font: inherit;
+  color: inherit;
+  border: none;
+  padding: 0.5em;
+  transition: width var(--signup-transition);
+  background: white;
+}
+.signup-slider--submit .signup-input {
+  width: calc(var(--signup-width) - var(--submit-width));
+}
+.signup-input:focus {
+  outline: none;
+}
+
+.signup-submit {
+  border: none;
+  width: var(--submit-width);
+  font: inherit;
+  background: #1f1f1f;
+  padding: 0.5em;
+  color: white;
+  cursor: pointer;
+}
+.signup-submit:hover,
+.signup-submit:focus {
+  background: #333333;
+  outline: none;
+}
+.signup-submit:active {
+  background: #444444;
+  outline: none;
 }

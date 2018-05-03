@@ -1,96 +1,141 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>custom homes powered by AI&ensp;•&ensp;Homealive</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,500,900" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="background"></div>
     <div class="background-loaded background-transparent"></div>
     <div class="background-overlay"></div>
     <div class="background-gradient"></div>
     <script>
-      (() => {
-        const loadedBackground = document.querySelector('.background-loaded');
-        const finish = () => {
-          loadedBackground.classList.remove('background-transparent');
-        };
-        const loader = new Image();
-        Promise.all([
-          new Promise(resolve => loader.addEventListener('load', resolve)),
-          new Promise(resolve => setTimeout(resolve, 500))
-        ]).then(finish);
-        loader.src = 'background.jpg';
-      })();
+        (() => {
+            const loadedBackground = document.querySelector('.background-loaded');
+            const finish = () => {
+                loadedBackground.classList.remove('background-transparent');
+            };
+            const loader = new Image();
+            Promise.all([
+                new Promise(resolve => loader.addEventListener('load', resolve)),
+                new Promise(resolve => setTimeout(resolve, 500))
+            ]).then(finish);
+            loader.src = 'background.jpg';
+        })();
     </script>
 
     <div class="content">
-      <div class="logo">
-        <img src="homalive-logo.svg" alt="Homalive" width="143.6" height="41.4" />
-        is almost there.
-      </div>
+        <div class="logo">
+            <img src="homalive-logo.svg" alt="Homalive" width="143.6" height="41.4" /> is almost there.
+        </div>
 
-      <h1>custom homes<br>without the big price tag.</h1>
+        <h1>custom homes<br>without the big price tag.</h1>
 
-      <p>Building a custom home always required big money spent on design and construction. But thanks to AI technology, that’s no longer necessary. Homalive helps you build a home at a fraction of that cost, beautifully tailored to your needs.</p>
+        <p>Building a custom home always required big money spent on design and construction. But thanks to AI technology, that’s no longer necessary. Homalive helps you build a home at a fraction of that cost, beautifully tailored to your needs.</p>
 
-      <p>We’re soon launching.<br/>Be the first to know.</p>
+        <p>We’re soon launching.<br/>Be the first to know.</p>
 
-      <div><button>keep me in the loop</button></div>
+        <p>
+            <form action="https://homalive.us18.list-manage.com/subscribe/post" method="POST">
+                <input type="hidden" name="u" value="fd6a54eed316044a17b43aaa2">
+                <input type="hidden" name="id" value="433a993ae1">
+                <div class="signup">
+                    <div class="signup-slider">
+                        <div class="signup-element signup-button" for="signup-show-slider">keep me informed</div>
+                        <input class="signup-element signup-input" type="email" placeholder="enter your email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="">
+                        <input class="signup-element signup-submit" type="submit" class="formEmailButton" name="submit" value="get updates">
+                    </div>
+                </div>
+                <script>
+                    (() => {
+                        const slider = document.querySelector('.signup-slider');
+                        const button = document.querySelector('.signup-button');
+                        const input = document.querySelector('.signup-input');
+                        const email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // http://emailregex.com
+                        const submit = 'signup-slider--submit';
+                        const checkEmail = () => {
+                            if (email.test(input.value)) slider.classList.add(submit);
+                            else slider.classList.remove(submit);
+                        };
+                        checkEmail();
+
+                        button.addEventListener('click', event => {
+                            slider.classList.add('signup-slider--shown');
+                            slider.addEventListener('transitionend', () => input.focus());
+                            checkEmail();
+                        });
+
+                        input.addEventListener('input', checkEmail);
+                    })()
+                </script>
+            </form>
+        </p>
     </div>
 
     <script>
-      (() => {
-        const backgroundGradient = document.querySelector('.background-gradient');
-        let currentHueBottomLeft = 0;
-        let currentHueTopRight = 0;
-        const clampPosition = (position) => Math.min(2.2, Math.max(-2.2, position));
-        const commitMovement = ({x, y}) => {
-          const previousHueBottomLeft = currentHueBottomLeft;
-          currentHueBottomLeft = clampPosition(previousHueBottomLeft - x);
+        (() => {
+            const backgroundGradient = document.querySelector('.background-gradient');
+            let currentHueBottomLeft = 0;
+            let currentHueTopRight = 0;
+            const clampPosition = (position) => Math.min(2.2, Math.max(-2.2, position));
+            const commitMovement = ({
+                x,
+                y
+            }) => {
+                const previousHueBottomLeft = currentHueBottomLeft;
+                currentHueBottomLeft = clampPosition(previousHueBottomLeft - x);
 
-          const previousTranslateY = currentHueTopRight;
-          currentHueTopRight = clampPosition(previousTranslateY - y);
+                const previousTranslateY = currentHueTopRight;
+                currentHueTopRight = clampPosition(previousTranslateY - y);
 
-          backgroundGradient.style.background = `
-            linear-gradient(
-              to top right,
-              hsla(${175 + currentHueBottomLeft * 180 / 2.2}, 100%, 50%, 0.4),
-              hsla(${61 + currentHueTopRight * 180 / 2.2}, 100%, 50%, 0.8)
-            )
-          `;
-        }
+                backgroundGradient.style.background =
+                    `
+                        linear-gradient(
+                          to top right,
+                          hsla(${175 + currentHueBottomLeft * 180 / 2.2}, 100%, 50%, 0.2),
+                          hsla(${61 + currentHueTopRight * 180 / 2.2}, 100%, 50%, 0.8)
+                        )
+                    `;
+            }
 
-        const mouseMoveRatio = 2;
-        window.addEventListener('mousemove', (event) => {
-          commitMovement({
-            x: mouseMoveRatio * event.movementX / document.documentElement.clientWidth,
-            y: mouseMoveRatio * event.movementY / document.documentElement.clientHeight,
-          });
-        });
+            commitMovement({
+                x: 0,
+                y: 0
+            })
 
-        let currentBeta = null;
-        let currentGamma = null;
-        const rotationRatio = 0.1;
-        const movementByAngle = (previous, current) => (
-          rotationRatio * (previous - current) % 360
-        );
-        window.addEventListener('deviceorientation', (event) => {
-          const previousBeta = currentBeta;
-          const previousGamma = currentGamma;
-          currentBeta = event .beta;
-          currentGamma = event.gamma;
+            const mouseMoveRatio = 2;
+            window.addEventListener('mousemove', (event) => {
+                commitMovement({
+                    x: mouseMoveRatio * event.movementX / document.documentElement.clientWidth,
+                    y: mouseMoveRatio * event.movementY / document.documentElement.clientHeight,
+                });
+            });
 
-          if (previousBeta == null || previousGamma == null) return;
-          commitMovement({
-            x: rotationRatio * (previousGamma - currentGamma),
-            y: rotationRatio * (previousBeta - currentBeta),
-          });
-        });
-      })();
+            let currentBeta = null;
+            let currentGamma = null;
+            const rotationRatio = 0.1;
+            const movementByAngle = (previous, current) => (
+                rotationRatio * (previous - current) % 360
+            );
+            window.addEventListener('deviceorientation', (event) => {
+                const previousBeta = currentBeta;
+                const previousGamma = currentGamma;
+                currentBeta = event.beta;
+                currentGamma = event.gamma;
+
+                if (previousBeta == null || previousGamma == null) return;
+                commitMovement({
+                    x: rotationRatio * (previousGamma - currentGamma),
+                    y: rotationRatio * (previousBeta - currentBeta),
+                });
+            });
+        })();
     </script>
-  </body>
+</body>
+
 </html>
