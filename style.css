@@ -72,7 +72,7 @@ body {
 .background-gradient {
   background: linear-gradient(
     to top right,
-    rgba(0, 255, 245, 0.4),
-    rgba(252, 255, 0, 0.8)
+    hsla(175, 100%, 50%, 0.4),
+    hsla(61, 100%, 50%, 0.8)
   )
 }

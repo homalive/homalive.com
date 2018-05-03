@@ -26,5 +26,56 @@
 
       <div><button>keep me in the loop</button></div>
     </div>
+
+    <script>
+      (() => {
+        const backgroundGradient = document.querySelector('.background-gradient');
+        let currentHueBottomLeft = 0;
+        let currentHueTopRight = 0;
+        const clampPosition = (position) => Math.min(2.2, Math.max(-2.2, position));
+        const commitMovement = ({x, y}) => {
+          const previousHueBottomLeft = currentHueBottomLeft;
+          currentHueBottomLeft = clampPosition(previousHueBottomLeft - x);
+
+          const previousTranslateY = currentHueTopRight;
+          currentHueTopRight = clampPosition(previousTranslateY - y);
+
+          backgroundGradient.style.background = `
+            linear-gradient(
+              to top right,
+              hsla(${175 + currentHueBottomLeft * 180 / 2.2}, 100%, 50%, 0.4),
+              hsla(${61 + currentHueTopRight * 180 / 2.2}, 100%, 50%, 0.8)
+            )
+          `;
+        }
+
+        const mouseMoveRatio = 2;
+        window.addEventListener('mousemove', (event) => {
+          commitMovement({
+            x: mouseMoveRatio * event.movementX / document.documentElement.clientWidth,
+            y: mouseMoveRatio * event.movementY / document.documentElement.clientHeight,
+          });
+        });
+
+        let currentBeta = null;
+        let currentGamma = null;
+        const rotationRatio = 0.1;
+        const movementByAngle = (previous, current) => (
+          rotationRatio * (previous - current) % 360
+        );
+        window.addEventListener('deviceorientation', (event) => {
+          const previousBeta = currentBeta;
+          const previousGamma = currentGamma;
+          currentBeta = event .beta;
+          currentGamma = event.gamma;
+
+          if (previousBeta == null || previousGamma == null) return;
+          commitMovement({
+            x: rotationRatio * (previousGamma - currentGamma),
+            y: rotationRatio * (previousBeta - currentBeta),
+          });
+        });
+      })()
+    </script>
   </body>
 </html>
