@@ -57,6 +57,7 @@ body {
 }
 
 .background,
+.background-loaded,
 .background-overlay,
 .background-gradient {
   position: absolute;
@@ -66,11 +67,23 @@ body {
   left: 0;
   z-index: -1;
 }
-.background {
-  background: url(background.jpg);
+.background,
+.background-loaded {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+.background {
+  background-image: url(data:image/gif;base64,R0lGODdhBQAEAPQAAFhmaaO2yKzD2ZOwx2V6hIh+dsnCxObp9b3CznF2dmBYSrWZgN7IuLimnoF7
+dD44I7uJSrmIVHhVM0A9LiZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySH5BAEA
+ABQALAAAAAAFAAQAAAURIBAIA1EYB5IoC9M4DxRJUwgAOw==);
+}
+.background-loaded {
+  background-image: url(background.jpg);
+  transition: opacity ease-in-out 1s;
+}
+.background-transparent {
+  opacity: 0;
 }
 .background-overlay {
   background: rgba(0, 0, 0, 0.6);

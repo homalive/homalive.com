@@ -9,8 +9,23 @@
   </head>
   <body>
     <div class="background"></div>
+    <div class="background-loaded background-transparent"></div>
     <div class="background-overlay"></div>
     <div class="background-gradient"></div>
+    <script>
+      (() => {
+        const loadedBackground = document.querySelector('.background-loaded');
+        const finish = () => {
+          loadedBackground.classList.remove('background-transparent');
+        };
+        const loader = new Image();
+        Promise.all([
+          new Promise(resolve => loader.addEventListener('load', resolve)),
+          new Promise(resolve => setTimeout(resolve, 500))
+        ]).then(finish);
+        loader.src = 'background.jpg';
+      })();
+    </script>
 
     <div class="content">
       <div class="logo">
@@ -75,7 +90,7 @@
             y: rotationRatio * (previousBeta - currentBeta),
           });
         });
-      })()
+      })();
     </script>
   </body>
 </html>
