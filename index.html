@@ -97,7 +97,7 @@
                     `
                         linear-gradient(
                           to top right,
-                          hsla(${175 + currentHueBottomLeft * 180 / 2.2}, 100%, 50%, 0.2),
+                          hsla(${175 + currentHueBottomLeft * 180 / 2.2}, 100%, 50%, 0.4),
                           hsla(${61 + currentHueTopRight * 180 / 2.2}, 100%, 50%, 0.8)
                         )
                     `;
@@ -113,6 +113,16 @@
                 commitMovement({
                     x: mouseMoveRatio * event.movementX / document.documentElement.clientWidth,
                     y: mouseMoveRatio * event.movementY / document.documentElement.clientHeight,
+                });
+            });
+
+            let previousScrollPosition = window.scrollY;
+            window.addEventListener('scroll', (event) => {
+                const movement = (window.scrollY - previousScrollPosition) / window.innerHeight;
+                previousScrollPosition = window.scrollY;
+                commitMovement({
+                    x: movement,
+                    y: movement,
                 });
             });
 

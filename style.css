@@ -88,7 +88,9 @@ ABQALAAAAAAFAAQAAAURIBAIA1EYB5IoC9M4DxRJUwgAOw==);
 .background-overlay {
   background: rgba(0, 0, 0, 0.6);
 }
-.background-gradient {}
+.background-gradient {
+  position: fixed;
+}
 
 .signup {
   --signup-width: calc(300px + 20vw);
