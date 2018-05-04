@@ -74,9 +74,7 @@ body {
   background-repeat: no-repeat;
 }
 .background {
-  background-image: url(data:image/gif;base64,R0lGODdhBQAEAPQAAFhmaaO2yKzD2ZOwx2V6hIh+dsnCxObp9b3CznF2dmBYSrWZgN7IuLimnoF7
-dD44I7uJSrmIVHhVM0A9LiZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySH5BAEA
-ABQALAAAAAAFAAQAAAURIBAIA1EYB5IoC9M4DxRJUwgAOw==);
+  background-image: url(data:image/gif;base64,R0lGODdhBQAEAPQAAFhmaaO2yKzD2ZOwx2V6hIh+dsnCxObp9b3CznF2dmBYSrWZgN7IuLimnoF7dD44I7uJSrmIVHhVM0A9LiZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySH5BAEAABQALAAAAAAFAAQAAAURIBAIA1EYB5IoC9M4DxRJUwgAOw==);
 }
 .background-loaded {
   background-image: url(background.jpg);
