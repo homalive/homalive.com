@@ -7,6 +7,7 @@
 html {
   --padding: calc(20vw - 5vh);
   --line-height: 1.5;
+  --leading: calc(var(--line-height) * 1em);
   font-size: calc(14px + 0.5vw);
   color: white;
   font-family: montserrat, sans-serif;
@@ -39,11 +40,11 @@ h1 {
   font-size: 3rem;
   font-weight: 900;
   line-height: 1.1;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.8em;
 }
 
 p {
-  margin-top: calc(var(--line-height) * 1em);
+  margin-top: var(--leading);
 }
 
 body {
@@ -102,6 +103,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.5) -20px 30px 100px;
   color: rgba(0, 0, 0, 0.87);
   transition: transform var(--signup-transition);
+  margin-top: calc(2 * var(--leading));
 }
 .signup:hover,
 .signup--interacting {
