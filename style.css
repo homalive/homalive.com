@@ -5,9 +5,9 @@
 }
 
 html {
-  --padding: 12vw;
+  --padding: calc(20vw - 5vh);
   --line-height: 1.5;
-  font-size: calc(12px + 1vw);
+  font-size: calc(14px + 0.5vw);
   color: white;
   font-family: montserrat, sans-serif;
   height: 100%;
