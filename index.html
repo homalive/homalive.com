@@ -137,7 +137,7 @@
                 const movement = (window.scrollY - previousScrollPosition) / window.innerHeight;
                 previousScrollPosition = window.scrollY;
                 commitMovement({
-                    x: movement,
+                    x: -movement,
                     y: movement,
                 });
             });
