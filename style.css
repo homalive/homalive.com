@@ -103,7 +103,8 @@ body {
   color: rgba(0, 0, 0, 0.87);
   transition: transform var(--signup-transition);
 }
-.signup:hover {
+.signup:hover,
+.signup--interacting {
   transform: scale(1.1);
 }
 @media (max-width: 535.7px) {
@@ -119,7 +120,7 @@ body {
   flex-wrap: nowrap;
   transition: margin-left var(--signup-transition);
 }
-.signup-slider--shown {
+.signup--interacting .signup-slider {
   margin-left: calc(-1 * var(--signup-width));
 }
 
