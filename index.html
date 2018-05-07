@@ -8,7 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,500,900" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-        if (/\bhomalive.com$/.test(window.location.host) && window.location.protocol != 'https:') {
+        if (
+            /\bhomalive.com$/.test(window.location.host) &&
+            window.location.protocol != 'https:'
+        ) {
             window.location.protocol = 'https:';
         }
     </script>
@@ -18,7 +21,7 @@
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
-            dataLayer.push(arguments)
+            dataLayer.push(arguments);
         }
         gtag('js', new Date());
         gtag('config', 'UA-111256069-2', {
@@ -41,7 +44,7 @@
     <meta name="twitter:site" content="@homalive">
     <meta name="twitter:creator" content="@architectcodes">
     <meta property="og:title" content="custom homes without the big price tag">
-    <meta property="og:description" content="Building a custom home always required big money spent on design and construction. But thanks to AI technology, that’s no longer necessary. Homalive helps you build a home at a fraction of that cost, beautifully tailored to your needs." />
+    <meta property="og:description" content="Building a custom home always required big money spent on design and construction. But thanks to AI technology, that’s no longer necessary. Homalive helps you build a home at a fraction of that cost, beautifully tailored to your needs.">
     <meta property="og:image" content="https://homalive.com/hero.jpg" />
 </head>
 
@@ -59,7 +62,7 @@
             const loader = new Image();
             Promise.all([
                 new Promise(resolve => loader.addEventListener('load', resolve)),
-                new Promise(resolve => setTimeout(resolve, 500))
+                new Promise(resolve => setTimeout(resolve, 500)),
             ]).then(finish);
             loader.src = 'background.jpg';
         })();
@@ -121,7 +124,7 @@
                             slider.addEventListener('transitionend', focusInput);
                         };
                         button.addEventListener('click', focusInputAfterTransition);
-                    })()
+                    })();
                 </script>
             </form>
         </p>
@@ -132,7 +135,7 @@
             const backgroundGradient = document.querySelector('.background-gradient');
             let currentHueBottomLeft = 0;
             let currentHueTopRight = 0;
-            const clampPosition = (position) => Math.min(2.2, Math.max(-2.2, position));
+            const clampPosition = position => Math.min(2.2, Math.max(-2.2, position));
             const commitMovement = ({
                 x,
                 y
@@ -147,28 +150,37 @@
                     `
                         linear-gradient(
                           to top right,
-                          hsla(${175 + currentHueBottomLeft * 180 / 2.2}, 100%, 50%, 0.4),
-                          hsla(${61 + currentHueTopRight * 180 / 2.2}, 100%, 50%, 0.8)
+                          hsla(${175 +
+                              currentHueBottomLeft *
+                                  180 /
+                                  2.2}, 100%, 50%, 0.4),
+                          hsla(${61 +
+                              currentHueTopRight * 180 / 2.2}, 100%, 50%, 0.8)
                         )
                     `;
-            }
+            };
 
             commitMovement({
                 x: 0,
-                y: 0
-            })
+                y: 0,
+            });
 
             const mouseMoveRatio = 2;
-            window.addEventListener('mousemove', (event) => {
+            window.addEventListener('mousemove', event => {
                 commitMovement({
-                    x: mouseMoveRatio * event.movementX / document.documentElement.clientWidth,
-                    y: mouseMoveRatio * event.movementY / document.documentElement.clientHeight,
+                    x: mouseMoveRatio *
+                        event.movementX /
+                        document.documentElement.clientWidth,
+                    y: mouseMoveRatio *
+                        event.movementY /
+                        document.documentElement.clientHeight,
                 });
             });
 
             let previousScrollPosition = window.scrollY;
-            window.addEventListener('scroll', (event) => {
-                const movement = (window.scrollY - previousScrollPosition) / window.innerHeight;
+            window.addEventListener('scroll', event => {
+                const movement =
+                    (window.scrollY - previousScrollPosition) / window.innerHeight;
                 previousScrollPosition = window.scrollY;
                 commitMovement({
                     x: -movement,
@@ -179,10 +191,9 @@
             let currentBeta = null;
             let currentGamma = null;
             const rotationRatio = 0.1;
-            const movementByAngle = (previous, current) => (
-                rotationRatio * (previous - current) % 360
-            );
-            window.addEventListener('deviceorientation', (event) => {
+            const movementByAngle = (previous, current) =>
+                (rotationRatio * (previous - current)) % 360;
+            window.addEventListener('deviceorientation', event => {
                 const previousBeta = currentBeta;
                 const previousGamma = currentGamma;
                 currentBeta = event.beta;
