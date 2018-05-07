@@ -21,7 +21,21 @@
             dataLayer.push(arguments)
         }
         gtag('js', new Date());
-        gtag('config', 'UA-111256069-2');
+        gtag('config', 'UA-111256069-2', {
+            send_page_view: false,
+        });
+        gtag('event', 'page_view', {
+            event_callback: () => {
+                const query = location.search.replace(/^\?/, '').split('&');
+                const isNotUtm = parameter => !/^utm_/.test(parameter);
+                if (!query.every(isNotUtm)) {
+                    const cleanQuery = query.filter(isNotUtm)
+                    history.replaceState({}, '', String(location).replace(
+                        /\?.*/, !!cleanQuery.length ? `?${cleanQuery.join('&')}` : ''
+                    ))
+                }
+            },
+        });
     </script>
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@homalive">
