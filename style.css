@@ -58,9 +58,9 @@ body {
 }
 
 .background,
-.background-loaded,
-.background-overlay,
-.background-gradient {
+.background__loaded-image,
+.background__overlay,
+.background__gradient {
   position: absolute;
   top: 0;
   right: 0;
@@ -69,7 +69,7 @@ body {
   z-index: -1;
 }
 .background,
-.background-loaded {
+.background__loaded-image {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -77,17 +77,17 @@ body {
 .background {
   background-image: url(data:image/gif;base64,R0lGODdhBQAEAPQAAFhmaaO2yKzD2ZOwx2V6hIh+dsnCxObp9b3CznF2dmBYSrWZgN7IuLimnoF7dD44I7uJSrmIVHhVM0A9LiZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySZFySH5BAEAABQALAAAAAAFAAQAAAURIBAIA1EYB5IoC9M4DxRJUwgAOw==);
 }
-.background-loaded {
+.background__loaded-image {
   background-image: url(background.jpg);
   transition: opacity ease-in-out 1s;
 }
-.background-transparent {
+.background__loaded-image--hidden {
   opacity: 0;
 }
-.background-overlay {
+.background__overlay {
   background: rgba(0, 0, 0, 0.6);
 }
-.background-gradient {
+.background__gradient {
   position: fixed;
 }
 
@@ -115,24 +115,24 @@ body {
   }
 }
 
-.signup-slider {
+.signup__slider {
   height: var(--signup-height);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   transition: margin-left var(--signup-transition);
 }
-.signup--interacting .signup-slider {
+.signup--interacting .signup__slider {
   margin-left: calc(-1 * var(--signup-width));
 }
 
-.signup-element {
+.signup__element {
   height: 100%;
   width: var(--signup-width);
   flex-shrink: 0;
 }
 
-.signup-button {
+.signup__button {
   background: white;
   cursor: pointer;
   border: none;
@@ -143,7 +143,7 @@ body {
   background: white;
 }
 
-.signup-input {
+.signup__input {
   font: inherit;
   color: inherit;
   border: none;
@@ -152,14 +152,14 @@ body {
   background: white;
   border-radius: 0;
 }
-.signup-slider--submit .signup-input {
+.signup__slider--submit .signup__input {
   width: calc(var(--signup-width) - var(--submit-width));
 }
-.signup-input:focus {
+.signup__input:focus {
   outline: none;
 }
 
-.signup-submit {
+.signup__submit {
   border: none;
   width: var(--submit-width);
   font: inherit;
@@ -169,12 +169,12 @@ body {
   cursor: pointer;
   border-radius: 0;
 }
-.signup-submit:hover,
-.signup-submit:focus {
+.signup__submit:hover,
+.signup__submit:focus {
   background: #333333;
   outline: none;
 }
-.signup-submit:active {
+.signup__submit:active {
   background: #444444;
   outline: none;
 }
