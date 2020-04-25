@@ -61,7 +61,7 @@ body {
 .background__loaded-image,
 .background__overlay,
 .background__gradient {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
